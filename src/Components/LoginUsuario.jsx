@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 const LoginForm = (props) => {
     const [ NombreUsuario, setNombreUsuario] = useState("");
@@ -10,13 +10,14 @@ const LoginForm = (props) => {
     const [ NombreUsuarioError, setNombreUsuarioError] = useState("");
    
     const [ passwordError, setPasswordError] = useState("");
-
+    const navigate = useNavigate();
 
     const handlerCreateUsuario= (e) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/usuario/validate', { NombreUsuario, password })
             .then(res => {
                 console.log(res.data);
+                navigate('/principal');
                 if(res.data.confirm === true){
                    
                 }
