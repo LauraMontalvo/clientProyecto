@@ -1,8 +1,7 @@
-
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import { useState, useNavigate } from 'react';
+import { useState } from 'react';
 import { Form } from 'react-bootstrap';
 
 const RegisterUsuario = (props) => {
