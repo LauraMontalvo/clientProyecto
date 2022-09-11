@@ -1,15 +1,17 @@
+
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { Form } from 'react-bootstrap';
 
+
 const RegisterUsuario = (props) => {
    
-    const [ NombreUsuario, setNombreUsuario] = useState();
-    const [ email, setEmail ] = useState();
-    const [ password, setPassword ] = useState();
-    const [ confirmPassword, setConfirmPassword ] = useState();
+    const [ NombreUsuario, setNombreUsuario] = useState("");
+    const [ email, setEmail ] = useState("");
+    const [ password, setPassword ] = useState("");
+    const [ confirmPassword, setConfirmPassword ] = useState("");
 
    
     const [ aviso, setAviso ] = useState("");
@@ -28,8 +30,11 @@ const RegisterUsuario = (props) => {
             setEmail("");
             setPassword("");
             setConfirmPassword("");
-            setAviso("User has been successfully created");
+            setAviso("Usuario creado con exito!!");
             
+            setNombreUsuarioError("");
+            setEmailError("");
+            setPasswordError("");
            
         
             
@@ -43,8 +48,8 @@ const RegisterUsuario = (props) => {
             if (Object.keys(errorResponse).includes('email')) {
                 setEmailError(errorResponse['email'].message);
             }
-            if(Object.keys(errorResponse).includes('confirmPassword')) {
-                setPasswordError(errorResponse['confirmPassword'].message);
+            if(Object.keys(errorResponse).includes('password')) {
+                setPasswordError(errorResponse['password'].message);
             }  
             else {
                 setAviso("");
@@ -56,7 +61,7 @@ return (
         <Form onSubmit={onsubmitHandler}>
                 <div className=''>
                     <p>Usuario:</p>
-                    <input type="text" onChange={(e) => { setNombreUsuario((e.target.value)) }} value={NombreUsuario} />
+                    <input type="text" onChange={(e) => { setNombreUsuario((e.target.value))   }} value={NombreUsuario} />
                     <p>{NombreUsuarioError}</p>
                     <p>Email:</p>
                     <input type="email" onChange={(e) => { setEmail((e.target.value)) }} value={email}/>
@@ -66,6 +71,7 @@ return (
                     <p>{passwordError}</p>
                     <p>Confirm Password:</p>
                     <input type="password" onChange={(e) => { setConfirmPassword((e.target.value)) }} value={confirmPassword} />
+                    
                    
                 </div>
                     <div><button type='submit' className="botonsubmit" >Crear cuenta"</button> </div>
@@ -74,7 +80,7 @@ return (
                        
                     </div>
                     
-                    <p>{passwordError}</p>
+                    
                     <p>{aviso}</p>
 
           
