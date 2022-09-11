@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Lista from "../Components/ListaProveedores";
-
+import Header from "../Components/Header";
 const Proveedores = () => {
   //Declaración de variables de estado
   const [proveedor, setProveedor] = useState([]);
@@ -25,6 +25,7 @@ const Proveedores = () => {
 
   return (
     <div>
+      <Header/>
         <div >
         <h1>Proveedores</h1>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
-
+import Header from '../Components/Header';
 const ProveedorIngresar = () => {
     const [nombreProveedor,setNombreProveedor]=useState("");
     const [telefonoProveedor,setTelefonoProveedor]=useState("");
@@ -24,6 +24,7 @@ const ProveedorIngresar = () => {
     
     return(
         <div>
+            <Header/>
 
         <form >
             <h1> Formulario Proveedores</h1>

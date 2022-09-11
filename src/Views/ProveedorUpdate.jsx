@@ -1,7 +1,7 @@
 import {React, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link,useNavigate } from "react-router-dom";
-
+import Header from "../Components/Header";
 const ProveedorUpdate = () =>{
     const {id} = useParams()
     const [nombreProveedor,setNombreProveedor]=useState("");
@@ -40,7 +40,9 @@ const ProveedorUpdate = () =>{
     } 
 
     return(
+        
         <div>
+            <Header/>
             <form >
             <h1> Proveedores </h1>
             <p>Editar el proveedor:</p>
@@ -57,7 +59,7 @@ const ProveedorUpdate = () =>{
             <input type="text" name="ruc" value={rucProveedor} onChange={(e)=> setRucProveedor(e.target.value)} />
             <br/>
             <button onClick={handlerUpdateProveedor} > Submit </button>
-            <Link to={"/"} ><button > Cancel</button></Link>
+            <Link to={"/principal"} ><button > Cancel</button></Link>
         </form>
             
         </div>
