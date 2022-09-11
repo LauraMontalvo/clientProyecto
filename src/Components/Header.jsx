@@ -9,7 +9,7 @@ const Header = (props) =>{
                 <h1 >El BODEGON <span> DORADO</span></h1>
                 <ul className="nav-links">
                     <li><button className="boton" onClick={e=>navigate("/productos")} >Productos</button></li>
-                    <li> <button className="boton" onClick={e=>navigate("/proveedores")} >Proveedores</button></li>
+                    <li> <button className="boton" onClick={e=>navigate("/proveedor")} >Proveedores</button></li>
                     <li> <button className="boton" onClick={e=>navigate("/ventas")} >Ventas</button></li>
                     <li><button className="boton" onClick={e=>navigate("/")} >Salir de la Aplicacion</button> </li>
                 </ul>
