@@ -51,3 +51,25 @@
   font-size: 16px;
 }
 
+.fondoLogin{
+  width: 40cm;
+  height: 19cm;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.form-box {
+  width: 320px;
+  height: 450px;
+  background-color: black;
+  color: white;
+  top: 37%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  margin-top: 5%;
+}
+

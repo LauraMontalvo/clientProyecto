@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import loginFondo from '../img/loginFondo.jpg'
+import '../Styles/loginstyle.css'
 
 const RegisterUsuario = (props) => {
     const [ NombreUsuario, setNombreUsuario] = useState("");
@@ -46,7 +48,9 @@ const RegisterUsuario = (props) => {
     }
 
     return (
-        <Form onSubmit={onsubmitHandler}>
+        <div className='body'>
+            <img className='fondoLogin' src={loginFondo} alt="fondo" />
+            <Form className='form-box' onSubmit={onsubmitHandler}>
                 <div className=''>
                     <p>Usuario:</p>
                     <input type="text" onChange={e => setNombreUsuario(e.target.value)} value={NombreUsuario} />
@@ -65,7 +69,9 @@ const RegisterUsuario = (props) => {
                     <Link  to={"/"}>  Ir al Inicio </Link> 
                 </div>
                 <p>{aviso}</p>  
-        </Form>
+            </Form>
+        </div>
+        
     )
 }
 

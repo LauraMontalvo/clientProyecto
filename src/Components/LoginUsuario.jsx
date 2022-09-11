@@ -5,6 +5,7 @@ import avatar from '../img/usuario.png'
 import { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import {Button} from "reactstrap";
+import loginFondo from '../img/loginFondo.jpg'
 
 const LoginForm = (props) => {
     const [ NombreUsuario, setNombreUsuario] = useState("");
@@ -17,7 +18,6 @@ const LoginForm = (props) => {
         navigate("/principal");
     }
 
-    
     const handlerLogin= (e) => {
         e.preventDefault();
         if(password==="" || NombreUsuario===""){
@@ -41,7 +41,9 @@ const LoginForm = (props) => {
     }
 
     return (
-        <div class='login-box'>
+        <div className='body'>
+            <img className='fondoLogin' src={loginFondo} alt="fondo" />
+            <div class='login-box'>
             <img src={avatar} alt="Avatar" className="avatar" ></img> 
             <Form onSubmit={handlerLogin}>
                     <div >
@@ -62,8 +64,10 @@ const LoginForm = (props) => {
                         <p>{loginStatus}</p>
                     
                     </div>
-            </Form>
+                </Form>
+            </div>
         </div>
+        
         
     )
 }
