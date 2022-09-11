@@ -1,6 +1,6 @@
 import {React, useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link,useNavigate } from "react-router-dom";
 
 const ProveedorUpdate = () =>{
     const {id} = useParams()
@@ -8,6 +8,12 @@ const ProveedorUpdate = () =>{
     const [telefonoProveedor,setTelefonoProveedor]=useState("");
     const [direccionProveedor,setDireccionProveedor]=useState("");
     const [rucProveedor,setRucProveedor]=useState("");
+    const navigate = useNavigate();
+
+    const goToProv=()=>{
+        navigate("/proveedor");
+    }
+
 
     useEffect(()=>{
         axios.get("http://127.0.0.1:8000/api/proveedor/"+id)
@@ -25,7 +31,11 @@ const ProveedorUpdate = () =>{
     const handlerUpdateProveedor = (e) =>{
         e.preventDefault()
         axios.put("http://127.0.0.1:8000/api/proveedor/"+id,{nombreProveedor,telefonoProveedor, direccionProveedor,rucProveedor })
-        .then(res => console.log(res))
+        .then(
+            res => {console.log(res)
+            setTimeout(goToProv,1000)
+        
+        })
         .catch(err => console.log(err))
     } 
 
@@ -33,7 +43,7 @@ const ProveedorUpdate = () =>{
         <div>
             <form >
             <h1> Proveedores </h1>
-            <p>Editar el proveedor {nombreProveedor}:</p>
+            <p>Editar el proveedor:</p>
             <label> Name:</label>
             <input type="text" name="name" value={nombreProveedor} onChange={(e)=> setNombreProveedor(e.target.value)} />
             <br/>
@@ -46,7 +56,7 @@ const ProveedorUpdate = () =>{
             <label> Ruc:</label>
             <input type="text" name="ruc" value={rucProveedor} onChange={(e)=> setRucProveedor(e.target.value)} />
             <br/>
-            <button onClick={handlerUpdateProveedor} > <Link to={"/"}>Submit </Link></button>
+            <button onClick={handlerUpdateProveedor} > Submit </button>
             <Link to={"/"} ><button > Cancel</button></Link>
         </form>
             

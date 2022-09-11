@@ -9,10 +9,16 @@ const ProveedorIngresar = () => {
     const [rucProveedor,setRucProveedor]=useState("");
     const navigate = useNavigate();
 
+    const goToProv=()=>{
+        navigate("/proveedor");
+    }
+
     const onSubmitHandler= e =>{
         e.preventDefault();
         axios.post('http://127.0.0.1:8000/api/proveedor/new',{nombreProveedor,telefonoProveedor,direccionProveedor,rucProveedor})
-            .then(res => console.log("Petición exitosa: ", res))
+            .then(res => {console.log("Petición exitosa: ", res)
+            setTimeout(goToProv,1000)
+        })
             .catch(err => console.log("Petición fallida:", err))
     }
     
