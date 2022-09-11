@@ -1,7 +1,10 @@
 import axios from 'axios';
+import "../Styles/loginstyle.css"
 import { Form } from 'react-bootstrap';
+import avatar from '../img/usuario.png'
 import { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
+import {Button} from "reactstrap";
 
 const LoginForm = (props) => {
     const [ NombreUsuario, setNombreUsuario] = useState("");
@@ -37,24 +40,30 @@ const LoginForm = (props) => {
     }
 
     return (
-        <Form onSubmit={handlerLogin}>
-                <div className='contenedor1'>
-                    <h2>Login</h2>
-                    <p>Nombre:</p>
-                    <input type="text" onChange={e => { setNombreUsuario(e.target.value) }} value={NombreUsuario} />
-                    <p>Password</p>
-                    <input type="password" onChange={e => { setPassword(e.target.value) }} value={password} />
-                    <div>
-                        <Link to={"/registrar/"}>  Registrarse </Link>
+        <div class='login-box'>
+            <img src={avatar} alt="Avatar" className="avatar" ></img> 
+            <Form onSubmit={handlerLogin}>
+                    <div >
+                        <h2>Login</h2>
+                        <p>Nombre:</p>
+                        <input type="text" class="form-control"  onChange={e => { setNombreUsuario(e.target.value) }} value={NombreUsuario} />
+                        <p>Password</p>
+                        <input class="form-control" type="password" onChange={e => { setPassword(e.target.value) }} value={password} />
+                        <div>
+                            No tiene una cuenta? 
+                            <Link to={"/registrar/"}>  Registrate </Link>
+                            <br />
+                        </div>
+                        <br />
+                        <div >
+                            <Button className="boton"  color="primary" >Iniciar Sesion</Button> 
+                        </div>
+                        <p>{loginStatus}</p>
+                    
                     </div>
-
-                    <div>
-                        <button type='submit' className="botonsubmit">Iniciar Sesion</button>
-                    </div>
-                    <p>{loginStatus}</p>
-                   
-                </div>
-        </Form>
+            </Form>
+        </div>
+        
     )
 }
 export default LoginForm;
