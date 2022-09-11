@@ -18,8 +18,8 @@ const DetalleFactura = () => {
 
     useEffect(()=>{
         axios.get("http://127.0.0.1:8000/api/detalles")
-        .then(res=>setDetallesFactura(res.data))
-    },[])
+        .then(res=>setDetallesFactura(res.data.filter(detalle=>detalle.idFactura===id)))
+    },[id])
 
     return(
         <div>
@@ -56,13 +56,18 @@ const DetalleFactura = () => {
                             (detalle,ind) => {
                                 return (
                                     <tr key={ind}>
-                                        <td>{detalle.idFactura===id ? <p>{detalle.nombreProducto}</p>:<p></p>}</td>
-                                        <td>{detalle.idFactura===id ? detalle.cantidad:<p></p>}</td>
-                                        <td>{detalle.idFactura===id ? detalle.subtotal:<p></p>}</td>
+                                        <td>{detalle.nombreProducto}</td>
+                                        <td>{detalle.cantidad}</td>
+                                        <td>{detalle.subtotal}</td>
                                     </tr>
                                 )
-                        })
+                            }
+                        )
+                        
                     }
+                        <td></td>
+                        <td><h3>Total</h3></td>
+                        <td><h3>{factura.total}</h3></td>
                     </tbody>
                 </Table>
             </div>
