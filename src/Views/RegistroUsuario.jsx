@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Form } from 'react-bootstrap';
 
 const RegisterUsuario = (props) => {
-   //const navigate = useNavigate();
+   
     const [ NombreUsuario, setNombreUsuario] = useState();
     const [ email, setEmail ] = useState();
     const [ password, setPassword ] = useState();

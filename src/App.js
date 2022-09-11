@@ -7,6 +7,9 @@ import Ventas from './Views/Ventas';
 import ListaFacturas from './Views/ListaFacturas';
 import DetalleFactura from './Views/DetalleFactura';
 import RealizarVenta from './Views/RealizarVenta';
+import Proveedores from './Views/Proveedores';
+import ProveedorIngresar from './Views/ProveedorIngresar';
+import ProveedorUpdate from './Views/ProveedorUpdate';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
             <Route path='/historial' element={<ListaFacturas/>}/>
             <Route exact path='/detalleFactura/:id' element={<DetalleFactura/>} />
             <Route path="/vender" element={<RealizarVenta/>}/>
+            <Route exact path="/proveedor" element={<Proveedores/>}/>
+            <Route exact path="/proveedor/new" element={<ProveedorIngresar/>}/>
+            <Route exact path="/edit/:id" element={<ProveedorUpdate/>} />
           </Routes>
         </BrowserRouter>
     </div>
