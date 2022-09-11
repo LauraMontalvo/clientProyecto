@@ -35,8 +35,7 @@ const RealizarVenta = () => {
         productosVender.map(prod => { 
             return(
                 total = total + +prod.precio
-            );
-            
+            );  
         })
         console.log(total.toFixed(3))
     }

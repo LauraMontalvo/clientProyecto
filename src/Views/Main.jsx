@@ -7,9 +7,6 @@ const Main = () => {
         <div className="App">
             <Header/>
             <img className="imgFondo" src={imgFondo} alt="Licoreria el Bodegon Dorado"/>
-            <div>
-                
-            </div>
         </div>
         
     )

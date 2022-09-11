@@ -9,12 +9,10 @@ const Proveedores = () => {
   const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
 
-
   //Función para actualizar el DOM
   const updateDom = (proveedorId) => {
     setProveedor(proveedor.filter((proveedor) => proveedor._id !== proveedorId));
   };
-
   //Método para obtener y cargar información
   useEffect(() => {
     axios
@@ -29,14 +27,10 @@ const Proveedores = () => {
         <div >
         <h1>Proveedores</h1>
       </div>
-      
       <p align="right">  <button className="boton" onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</button> </p>
-      
-        
-        <div>
+      <div>
         {loaded && <Lista proveedor={proveedor} updateDom={updateDom} />}
-        </div>
-
+      </div>
     </div>
   );
 };

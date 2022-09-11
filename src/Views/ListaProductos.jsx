@@ -17,10 +17,6 @@ const ListaProductos = () => {
         })
     },[]);
     //const navigate = useNavigate();
-
-    
-
-
     const deleteProducto = (_id) =>{
         axios.delete('http://localhost:8000/api/producto/'+_id)
         .then(res => {
@@ -55,19 +51,13 @@ const ListaProductos = () => {
                         (producto,ind) => {
                             return (
                                 <tr key={ind}>
-                                    
                                     <td>{producto.nombre}</td>
                                     <td>{producto.precio}</td>
                                     <td>{producto.cantidad}</td>
                                     <td>{producto.tipo}</td>
                                     <td>
-                                    
-                               
                                         <Button  className='btnEdit' onClick={(e) => {editar(producto._id)}}>Editar</Button>
-
-                                        
                                         <Button color="danger" className='btnDelete' onClick={(e) => {deleteProducto(producto._id)}} >Eliminar</Button>
-
                                     </td>
                                 </tr>
                             )

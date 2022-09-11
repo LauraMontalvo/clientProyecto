@@ -2,16 +2,13 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginForm from './Components/LoginUsuario';
 import RegisterUsuario from './Views/RegistroUsuario';
-
 import Main from './Views/Main';
 import Ventas from './Views/Ventas';
 import ListaFacturas from './Views/ListaFacturas';
 import DetalleFactura from './Views/DetalleFactura';
 import RealizarVenta from './Views/RealizarVenta';
-
 import RegistrarProducto from './Views/RegistroProducto';
 import EditarProducto from './Views/EditarProducto';
-
 import ListaProductos from './Views/ListaProductos';
 import Proveedores from './Views/Proveedores';
 import ProveedorIngresar from './Views/ProveedorIngresar';
@@ -27,16 +24,14 @@ function App() {
             <Route path = '/principal' element={<Main/>}/>
             <Route path="/ventas" element={<Ventas/>} />
             <Route path='/historial' element={<ListaFacturas/>}/>
-            <Route exact path='/detalleFactura/:id' element={<DetalleFactura/>} />
+            <Route exact path='/detalleFactura/:id' element={<DetalleFactura/>}/>
             <Route path="/vender" element={<RealizarVenta/>}/>
             <Route exact path="/productos" element={<RegistrarProducto />}/>
             <Route  path='/listaproductos' element={<ListaProductos/>} />
             <Route exact path="/listaproductos/:id/edit" element = {<EditarProducto/>}/>
-
             <Route exact path="/proveedor" element={<Proveedores/>}/>
             <Route exact path="/proveedor/new" element={<ProveedorIngresar/>}/>
-            <Route exact path="/edit/:id" element={<ProveedorUpdate/>} />
-            
+            <Route exact path="/edit/:id" element={<ProveedorUpdate/>}/>
           </Routes>
         </BrowserRouter>
     </div>

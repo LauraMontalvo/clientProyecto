@@ -14,7 +14,6 @@ const ProveedorUpdate = () =>{
         navigate("/proveedor");
     }
 
-
     useEffect(()=>{
         axios.get("http://127.0.0.1:8000/api/proveedor/"+id)
         .then(res =>{
@@ -22,7 +21,6 @@ const ProveedorUpdate = () =>{
             setTelefonoProveedor(res.data.telefonoProveedor)
             setDireccionProveedor(res.data.direccionProveedor)
             setRucProveedor(res.data.rucProveedor)
-
         })
         .catch(err => console.log(err))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +32,6 @@ const ProveedorUpdate = () =>{
         .then(
             res => {console.log(res)
             setTimeout(goToProv,1000)
-        
         })
         .catch(err => console.log(err))
     } 
@@ -60,8 +57,7 @@ const ProveedorUpdate = () =>{
             <br/>
             <button onClick={handlerUpdateProveedor} > Submit </button>
             <Link to={"/principal"} ><button > Cancel</button></Link>
-        </form>
-            
+        </form>  
         </div>
     );
 }
