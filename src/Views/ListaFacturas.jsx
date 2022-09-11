@@ -40,7 +40,7 @@ const ListaFacturas = () => {
                                     <td>{factura.nombreCliente}</td>
                                     <td>{factura.direccion}</td>
                                     <td>{factura.telefono}</td>
-                                    <td>{factura.total}</td>
+                                    <td>${factura.total}</td>
                                     <td><button onClick={e=>navigate(`/detalleFactura/${factura._id}`)}>Mostrar detalle</button></td>
                                 </tr>
                             )

@@ -16,7 +16,10 @@ const ProductoVenta = (props) => {
 
     const AgregarCompra = (idProd) => {
         axios.get(`http://127.0.0.1:8000/api/producto/${idProd}`)
-        .then(res => setProductosVender([...productosVender,res.data]))
+        .then(res => {
+            setProductosVender([...productosVender,res.data])
+            console.log({Valores:productosVender})
+        })
     }
     return(
         <div>

@@ -43,6 +43,7 @@ const RealizarVenta = () => {
 
     const GenerarFactura = () => {
         CalcularTotal();
+        console.log({Valores:productosVender})
         console.log("Datos Factura:",{nombre:nombreCliente,direccion:direccion,telefono:telefono})
         axios.post(`http://127.0.0.1:8000/api/factura/new`, {nombreCliente,direccion,telefono,total})
             .then(res => {

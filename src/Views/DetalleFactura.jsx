@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import { Table } from "reactstrap";
@@ -7,6 +7,7 @@ import Header from "../Components/Header";
 
 const DetalleFactura = () => {
     const {id} = useParams();
+    const navigate = useNavigate();
     const [factura, setFactura] = useState([]);
     const [detallesFactura, setDetallesFactura] = useState([]);
     useEffect(()=>{
@@ -58,7 +59,7 @@ const DetalleFactura = () => {
                                     <tr key={ind}>
                                         <td>{detalle.nombreProducto}</td>
                                         <td>{detalle.cantidad}</td>
-                                        <td>{detalle.subtotal}</td>
+                                        <td>${detalle.subtotal}</td>
                                     </tr>
                                 )
                             }
@@ -67,9 +68,12 @@ const DetalleFactura = () => {
                     }
                         <td></td>
                         <td><h3>Total</h3></td>
-                        <td><h3>{factura.total}</h3></td>
+                        <td><h3>${factura.total}</h3></td>
                     </tbody>
                 </Table>
+            </div>
+            <div>
+                <button onClick={e=>navigate('/historial')}>Volver a la lista de facturas</button>
             </div>
         </div>
     );
