@@ -72,7 +72,7 @@ const RegistrarProducto= (props) => {
                         </tr>
                         <tr>
                             <td></td>
-                            <td><p>{nombreError}</p></td>
+                            <td><p style={{color:"red"}}>{nombreError}</p></td>
                         </tr>
                         <tr>
                                 <td><p>Precio:</p></td>
@@ -82,7 +82,7 @@ const RegistrarProducto= (props) => {
                         </tr>
                         <tr>
                             <td></td>
-                            <td><p>{precioError}</p></td>
+                            <td><p style={{color:"red"}}>{precioError}</p></td>
                         </tr>
                         <tr>
                             <td><p>Cantidad:</p></td>
@@ -92,7 +92,7 @@ const RegistrarProducto= (props) => {
                         </tr>
                         <tr>
                             <td></td>
-                            <td><p>{cantidadError}</p></td>
+                            <td><p style={{color:"red"}}>{cantidadError}</p></td>
                         </tr>
                         <tr>
                             <td><p>Tipo:</p></td>
@@ -108,7 +108,7 @@ const RegistrarProducto= (props) => {
                         </tr>
                         <tr>
                             <td></td>
-                            <td><p>{tipoError}</p></td>
+                            <td><p style={{color:"red"}}>{tipoError}</p></td>
                         </tr>
                     </table>
                     </div>
@@ -118,7 +118,7 @@ const RegistrarProducto= (props) => {
                     <div>
                         <Button color="primary" type="button" className='btn' onClick={(e) => navigate('/listaProductos')}>Ver Productos Registrados</Button>
                     </div>
-                    <p>{statusCreacion}</p>
+                    <p style={{color:"green"}}>{statusCreacion}</p>
                     <div><h4><Link  to={"/principal"}>Volver a la página principal</Link></h4></div>   
             </Form>
     </div>       

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import {Table} from 'react-bootstrap'
+import {Table, Button} from 'react-bootstrap'
 
 const ProductoVenta = (props) => {
     const {productos,productosVender,setProductosVender} = props;
@@ -55,7 +55,7 @@ const ProductoVenta = (props) => {
                                                 <td>{producto.tipo}</td>
                                                 <td>{producto.cantidad}</td>
                                                 <td>${producto.precio}</td>
-                                                <td><button onClick={e=>AgregarCompra(producto._id)}>Agregar al carrito</button></td>
+                                                <td><Button onClick={e=>AgregarCompra(producto._id)}>Agregar al carrito</Button></td>
                                             </tr>
                                         )
                                     }

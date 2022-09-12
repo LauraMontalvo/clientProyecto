@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
-
+import {Button} from "reactstrap"
 //Definición de clase Lista
 const ListaProveedores = (props) => {
   const { proveedor, updateDom } = props;
@@ -39,7 +39,7 @@ const ListaProveedores = (props) => {
                   </div>
                 </td>
                 <td>
-                  <button key={idx + 1} className='btnDel' onClick={(e) => deleteProveedor(proveedor._id)}>Eliminar</button> <Link to={"/edit/"+proveedor._id} ><button key={idx + 1} className='btnUpdate'>Editar</button></Link>
+                  <Link to={"/edit/"+proveedor._id} ><Button key={idx + 1} className='btnUpdate'>Editar</Button></Link> <Button color="danger" key={idx + 1} className='btnDel' onClick={(e) => deleteProveedor(proveedor._id)}>Eliminar</Button>
                 </td>
               </tr>
             );

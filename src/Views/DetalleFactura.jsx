@@ -4,6 +4,7 @@ import axios from "axios";
 import { Table } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from "../Components/Header";
+import { Button } from "react-bootstrap";
 
 const DetalleFactura = () => {
     const {id} = useParams();
@@ -73,7 +74,7 @@ const DetalleFactura = () => {
                 </Table>
             </div>
             <div>
-                <button onClick={e=>navigate('/historial')}>Volver a la lista de facturas</button>
+                <Button onClick={e=>navigate('/historial')}>Volver a la lista de facturas</Button>
             </div>
         </div>
     );

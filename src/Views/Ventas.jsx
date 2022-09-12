@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table} from 'react-bootstrap'
 import Header from '../Components/Header';
 import { useNavigate } from 'react-router-dom';
-
+import {Button} from 'react-bootstrap';
 const Ventas = () => {
     const navigate = useNavigate();
     return(
@@ -18,8 +18,8 @@ const Ventas = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td><button onClick={e=>navigate('/vender')}>Vender</button></td>
-                            <td><button onClick={e=>navigate('/historial')}>Historial</button></td>
+                            <td><Button onClick={e=>navigate('/vender')}>Vender</Button></td>
+                            <td><Button onClick={e=>navigate('/historial')}>Historial</Button></td>
                         </tr>
                     </tbody>
                 </Table>

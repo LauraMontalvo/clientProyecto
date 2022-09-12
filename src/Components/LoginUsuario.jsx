@@ -61,7 +61,7 @@ const LoginForm = (props) => {
                         <div >
                             <Button className="boton"  color="primary" >Iniciar Sesion</Button> 
                         </div>
-                        <p>{loginStatus}</p>
+                        <p style={{color:'red'}}>{loginStatus}</p>
                     
                     </div>
                 </Form>

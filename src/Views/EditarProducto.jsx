@@ -81,7 +81,7 @@ const EditarProducto = () =>{
                         </tr>
                     </table>
                     <div>
-                    <p>{updateError}</p>
+                    <p style={{color:'red'}}>{updateError}</p>
                     </div>
                 </div>
                     <div className='btnseccion1'>

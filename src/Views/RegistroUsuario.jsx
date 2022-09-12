@@ -1,8 +1,8 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import loginFondo from '../img/loginFondo.jpg'
 import '../Styles/loginstyle.css'
 
@@ -15,6 +15,7 @@ const RegisterUsuario = (props) => {
     const [ emailError, setEmailError] = useState("");
     const [ NombreUsuarioError, setNombreUsuarioError] = useState("");
     const [ passwordError, setPasswordError] = useState("");
+    const navigate = useNavigate();
     const onsubmitHandler = (e) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/usuario/new', { NombreUsuario,email, password, confirmPassword })
@@ -51,24 +52,53 @@ const RegisterUsuario = (props) => {
         <div className='body'>
             <img className='fondoLogin' src={loginFondo} alt="fondo" />
             <Form className='form-box' onSubmit={onsubmitHandler}>
+            <h2>Informacion de usuario</h2>
                 <div className=''>
-                    <p>Usuario:</p>
-                    <input type="text" onChange={e => setNombreUsuario(e.target.value)} value={NombreUsuario} />
-                    <p>{NombreUsuarioError}</p>
-                    <p>Email:</p>
-                    <input type="email" onChange={e => setEmail(e.target.value)} value={email}/>
-                    <p>{emailError}</p>
-                    <p>Password:</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)} value={password} />
-                    <p>{passwordError}</p>
-                    <p>Confirm Password:</p>
-                    <input type="password" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword} /> 
+                    <table>
+                        <tr>
+                            <td><p>Usuario:</p></td>
+                            <td>
+                                <input type="text" onChange={e => setNombreUsuario(e.target.value)} value={NombreUsuario} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><p style={{color:'red'}}>{NombreUsuarioError}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Email:</p></td>
+                            <td>
+                                <input type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><p style={{color:'red'}} >{emailError}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Contraseña:</p></td>
+                            <td>
+                                <input type="password" onChange={e => setPassword(e.target.value)} value={password} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><p style={{color:'red'}}>{passwordError}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Confirmar contraseña:</p></td>
+                            <td>
+                                <input type="password" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword} /> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><p style={{color:'red'}}>{passwordError}</p></td>
+                        </tr>
+                    </table>
                 </div>
-                    <div><button type='submit' className="botonsubmit" >Crear cuenta"</button> </div>
-                <div>
-                    <Link  to={"/"}>  Ir al Inicio </Link> 
-                </div>
-                <p>{aviso}</p>  
+                    <div><Button type='submit' className="botonsubmit" >Crear cuenta</Button> <Button onClick={e=>navigate("/")}>Cancelar</Button></div>
+                <h4>{aviso}</h4>  
             </Form>
         </div>
         

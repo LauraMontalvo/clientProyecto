@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 import Header from '../Components/Header';
 import { useEffect, useState} from 'react';
 import axios from 'axios';
@@ -12,6 +12,7 @@ const RealizarVenta = () => {
     const [nombreCliente, setNombre] = useState("");
     const [direccion, setDireccion] = useState("");
     const [telefono, setTelefono] = useState("");
+    const [errorFactura,setErrorFactura] = useState("");
     var ultimaFactura = [];
     var total = 0;
     const navigate = useNavigate();
@@ -49,31 +50,35 @@ const RealizarVenta = () => {
                 //console.log(res.data.insertedFactura)
                 ultimaFactura = res.data.insertedFactura;
                 console.log({FacturaCreada:ultimaFactura})
+                productosVender.map(producto => {
+                    return(
+                        axios.get(`http://127.0.0.1:8000/api/producto/${producto._id}`)
+                            .then(returnedProd =>{
+                                if(+returnedProd.data.cantidad > 0){
+                                    let nombreProducto = returnedProd.data.nombre;
+                                    let nombre = nombreProducto;
+                                    let precio = returnedProd.data.precio;
+                                    let subtotal = returnedProd.data.precio;
+                                    let cantidad = 1;
+                                    let tipo = returnedProd.data.tipo
+                                    let idFactura = ultimaFactura._id;
+                                    console.log({DetalleInsertar:idFactura, nombreProducto, cantidad, subtotal})
+                                    axios.post(`http://127.0.0.1:8000/api/detalle/new`, {idFactura, nombreProducto, cantidad, subtotal})
+                                    .then(res => console.log({DetalleInsertado: res.data}))
+                                    cantidad = +returnedProd.data.cantidad-1
+                                    axios.put(`http://127.0.0.1:8000/api/producto/${returnedProd.data._id}`,{nombre, precio, cantidad, tipo})
+                                    .then(res => console.log(res.data))
+                                    navigate(`/detalleFactura/${idFactura}`)
+                                }
+                            })
+                        );
+                    }
+                )
             }
-        );
-        productosVender.map(producto => {
-            return(
-                axios.get(`http://127.0.0.1:8000/api/producto/${producto._id}`)
-                    .then(returnedProd =>{
-                        if(+returnedProd.data.cantidad > 0){
-                            let nombreProducto = returnedProd.data.nombre;
-                            let nombre = nombreProducto;
-                            let precio = returnedProd.data.precio;
-                            let subtotal = returnedProd.data.precio;
-                            let cantidad = 1;
-                            let tipo = returnedProd.data.tipo
-                            let idFactura = ultimaFactura._id;
-                            console.log({DetalleInsertar:idFactura, nombreProducto, cantidad, subtotal})
-                            axios.post(`http://127.0.0.1:8000/api/detalle/new`, {idFactura, nombreProducto, cantidad, subtotal})
-                            .then(res => console.log({DetalleInsertado: res.data}))
-                            cantidad = +returnedProd.data.cantidad-1
-                            axios.put(`http://127.0.0.1:8000/api/producto/${returnedProd.data._id}`,{nombre, precio, cantidad, tipo})
-                            .then(res => console.log(res.data))
-                            navigate(`/detalleFactura/${idFactura}`)
-                        }
-                    })
-                );
-        })
+        )
+        .catch(err=>{
+            setErrorFactura("Ingrese todos los datos del cliente!!");
+        });
     }
 
     return(
@@ -101,7 +106,7 @@ const RealizarVenta = () => {
                                         <td>{producto.tipo}</td>
                                         <td>{producto.cantidad}</td>
                                         <td>${producto.precio}</td>
-                                        <td><button onClick={e=>Eliminar(producto)}>Eliminar del carrito</button></td>
+                                        <td><Button color="danger" className='btnDelete' onClick={e=>Eliminar(producto)}>Eliminar del carrito</Button></td>
                                     </tr>
                                 )
                             }
@@ -127,8 +132,12 @@ const RealizarVenta = () => {
                             <td><input id='telefono' type="text" onChange={e=>setTelefono(e.target.value)} value={telefono}/></td>
                         </tr>
                     </tbody>
+                    <tr>
+                        <td></td>
+                        <td><h4 style={{color:'red'}}>{errorFactura}</h4></td>
+                    </tr>
                 </table>
-                <button onClick={GenerarFactura}>Generar factura</button><br/><br/>
+                <Button color="success" onClick={GenerarFactura}>Generar factura</Button><br/><br/>
                 
             </div>:<div></div>}
         </div>

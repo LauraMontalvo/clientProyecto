@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Lista from "../Components/ListaProveedores";
 import Header from "../Components/Header";
+import { Button } from "react-bootstrap";
 const Proveedores = () => {
   //Declaración de variables de estado
   const [proveedor, setProveedor] = useState([]);
@@ -27,7 +28,7 @@ const Proveedores = () => {
         <div >
         <h1>Proveedores</h1>
       </div>
-      <p align="center">  <button className="boton" onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</button> </p>
+      <p align="center">  <Button className="boton" onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</Button> </p>
       <div>
         {loaded && <Lista proveedor={proveedor} updateDom={updateDom} />}
       </div>

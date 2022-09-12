@@ -4,6 +4,7 @@ import axios from "axios";
 import { Table } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from "../Components/Header";
+import { Button } from "react-bootstrap";
 
 const ListaFacturas = () => {
     const [facturas, setFacturas] = useState([]);
@@ -41,7 +42,7 @@ const ListaFacturas = () => {
                                     <td>{factura.direccion}</td>
                                     <td>{factura.telefono}</td>
                                     <td>${factura.total}</td>
-                                    <td><button onClick={e=>navigate(`/detalleFactura/${factura._id}`)}>Mostrar detalle</button></td>
+                                    <td><Button onClick={e=>navigate(`/detalleFactura/${factura._id}`)}>Mostrar detalle</Button></td>
                                 </tr>
                             )
                         })

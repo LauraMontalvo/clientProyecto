@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import { Table } from "reactstrap";
-import 'bootstrap/dist/css/bootstrap.css';
 import Header from "../Components/Header";
+import 'bootstrap/dist/css/bootstrap.css';
 import {Button} from "reactstrap";
 
 const ListaProductos = () => {
@@ -36,7 +36,7 @@ const ListaProductos = () => {
             <Header/>
             <h1>Inventario</h1>
             <hr />
-            <p align="center"><button className="boton" onClick={e=>navigate("/nuevoProducto")} >Ingresar nuevo producto</button> </p>
+            <p align="center"><Button className="boton" onClick={e=>navigate("/nuevoProducto")} >Ingresar nuevo producto</Button> </p>
             <div className="container">
                 <Table>
                     <thead>
@@ -55,12 +55,11 @@ const ListaProductos = () => {
                             return (
                                 <tr key={ind}>
                                     <td>{producto.nombre}</td>
-                                    <td>{producto.precio}</td>
+                                    <td>${producto.precio}</td>
                                     <td>{producto.cantidad}</td>
                                     <td>{producto.tipo}</td>
                                     <td>
-                                        <Button  className='btnEdit' onClick={(e) => {editar(producto._id)}}>Editar</Button>
-                                        <Button color="danger" className='btnDelete' onClick={(e) => {deleteProducto(producto._id)}} >Eliminar</Button>
+                                        <Button  className='btnEdit' onClick={(e) => {editar(producto._id)}}>Editar</Button> <Button color="danger" className='btnDelete' onClick={(e) => {deleteProducto(producto._id)}} >Eliminar</Button>
                                     </td>
                                 </tr>
                             )
