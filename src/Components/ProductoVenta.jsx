@@ -8,9 +8,9 @@ const ProductoVenta = (props) => {
     const [filtrada,setFiltrada] = useState([]);
     const filtrarProductos = (e) => {
         if(e.target.value==="Mostrar todos"){
-            setFiltrada(productos)
+            setFiltrada(productos.sort((a, b) => a.nombre.localeCompare(b.nombre)))
         }else{
-            setFiltrada(productos.filter(x => x.tipo === e.target.value))
+            setFiltrada(productos.filter(x => x.tipo === e.target.value).sort((a, b) => a.nombre.localeCompare(b.nombre)))
         }
     }
 

@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 
-
-
 //Definición de clase Lista
 const ListaProveedores = (props) => {
   const { proveedor, updateDom } = props;
@@ -17,12 +15,10 @@ const ListaProveedores = (props) => {
       .then((res) => updateDom(proveedorID))
       .catch((err) => console.log("Error: ", err));
   };
-  
 
   //Estructura html para mostrar la lista de proveedores en pantalla
   return (
     <div>
-      
       <div>
         <h1>Lista de Proveedores:</h1>
       </div>
@@ -43,21 +39,7 @@ const ListaProveedores = (props) => {
                   </div>
                 </td>
                 <td>
-                  <button
-                    key={idx + 1}
-                    className='btnDel'
-                    onClick={(e) => deleteProveedor(proveedor._id)}
-                  >
-                    Eliminar
-                  </button>
-                  <Link to={"/edit/"+proveedor._id} >
-                  <button
-                    key={idx + 1}
-                    className='btnUpdate'  
-                  >
-                    Editar
-                  </button>
-                  </Link>
+                  <button key={idx + 1} className='btnDel' onClick={(e) => deleteProveedor(proveedor._id)}>Eliminar</button> <Link to={"/edit/"+proveedor._id} ><button key={idx + 1} className='btnUpdate'>Editar</button></Link>
                 </td>
               </tr>
             );

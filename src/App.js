@@ -26,8 +26,8 @@ function App() {
             <Route path='/historial' element={<ListaFacturas/>}/>
             <Route exact path='/detalleFactura/:id' element={<DetalleFactura/>}/>
             <Route path="/vender" element={<RealizarVenta/>}/>
-            <Route exact path="/productos" element={<RegistrarProducto />}/>
-            <Route  path='/listaproductos' element={<ListaProductos/>} />
+            <Route exact path="/listaProductos" element={<ListaProductos />}/>
+            <Route  path='/nuevoProducto' element={<RegistrarProducto/>} />
             <Route exact path="/listaproductos/:id/edit" element = {<EditarProducto/>}/>
             <Route exact path="/proveedor" element={<Proveedores/>}/>
             <Route exact path="/proveedor/new" element={<ProveedorIngresar/>}/>

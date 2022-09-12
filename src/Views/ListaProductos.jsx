@@ -13,7 +13,7 @@ const ListaProductos = () => {
     useEffect(()=>{
         axios.get('http://localhost:8000/api/productos')
         .then(res => {
-            setProductos(res.data)
+            setProductos(res.data.sort((a, b) => a.nombre.localeCompare(b.nombre)))
         })
     },[]);
     //const navigate = useNavigate();
@@ -34,6 +34,9 @@ const ListaProductos = () => {
     return(
         <div>
             <Header/>
+            <h1>Inventario</h1>
+            <hr />
+            <p align="center"><button className="boton" onClick={e=>navigate("/nuevoProducto")} >Ingresar nuevo producto</button> </p>
             <div className="container">
                 <Table>
                     <thead>

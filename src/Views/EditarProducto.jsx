@@ -45,35 +45,50 @@ const EditarProducto = () =>{
     return (
         <div>
              <Header/>
-            <Link to={'/'} className='link'>Ir al incicio</Link>
+             <h1>Editar producto</h1>
             <Form onSubmit={handlerUpdateProducto}> 
-                <div className=''>
-                    <p>Nombre:</p>
-                    <input type="text" onChange={(e) => { setNombre((e.target.value)) }} value={nombre} />
-                    <p>Precio:</p>
-                    <input type="text" onChange={(e) => { setPrecio((e.target.value)) }} value={precio}/>
-                    <p>Cantidad:</p>
-                    <input type="number" onChange={(e) => { setCantidad((e.target.value)) }} value={cantidad} />
-                    <p>Tipo:</p>
-                    <select onChange={(e)=> {setTipo((e.target.value))}}>
-                        <option>Seleccione</option>
-                        <option>Bebidas alcoholicas</option>
-                        <option>Bebidas no alcoholicas</option>
-                        <option>Snacks</option>
-                        <option>Otros</option>
-                    </select>
+                <div align="center" className=''>
+                <table>
+                        <tr>
+                            <td><p>Nombre:</p></td>
+                            <td>
+                                <input type="text" onChange={(e) => setNombre(e.target.value)} value={nombre} />
+                            </td>
+                        </tr>
+                        <tr>
+                                <td><p>Precio:</p></td>
+                            <td>
+                                <input type="text" onChange={(e) => setPrecio(e.target.value)} value={precio}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Cantidad:</p></td>
+                            <td>
+                                <input type="number" onChange={(e) => setCantidad(e.target.value) } value={cantidad} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Tipo:</p></td>
+                            <td>
+                                <select onChange={(e)=> {setTipo(e.target.value);console.log(tipo)}} >
+                                    <option>Seleccione</option>
+                                    <option>Bebidas alcoholicas</option>
+                                    <option>Bebidas no alcoholicas</option>
+                                    <option>Snacks</option>
+                                    <option>Otros</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                     <div>
                     <p>{updateError}</p>
                     </div>
                 </div>
-                    <div><Link  to={"/principal"}>  Ir a la pagina Principal </Link></div>
                     <div className='btnseccion1'>
-                        <Button color='primary' type="submit" className='btn'>Guardar</Button>
-                        <Button  color='primary' type="button"className='btn' onClick={e => navigate('/principal')} >Cancel</Button>
+                        <Button color='primary' type="submit" className='btn'>Guardar</Button> <Button  color='primary' type="button"className='btn' onClick={e => navigate('/listaProductos')} >Cancelar</Button>
                     </div><br />
                 <div>
-                    <Button color="primary" type="button" className='btn' onClick={(e) => navigate('/listaproductos')}>Ver Productos Registrados</Button>
-                </div>      
+                <h4><Link  to={"/principal"}>Volver a la página principal</Link></h4></div><br/>     
             </Form>
         </div>
     );

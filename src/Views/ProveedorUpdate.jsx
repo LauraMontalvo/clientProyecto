@@ -2,6 +2,8 @@ import {React, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link,useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {Button} from "reactstrap";
 const ProveedorUpdate = () =>{
     const {id} = useParams()
     const [nombreProveedor,setNombreProveedor]=useState("");
@@ -41,22 +43,38 @@ const ProveedorUpdate = () =>{
         <div>
             <Header/>
             <form >
-            <h1> Proveedores </h1>
-            <p>Editar el proveedor:</p>
-            <label> Name:</label>
-            <input type="text" name="name" value={nombreProveedor} onChange={(e)=> setNombreProveedor(e.target.value)} />
-            <br/>
-            <label> Telefono:</label>
-            <input type="text" name="telefono" value={telefonoProveedor} onChange={(e)=> setTelefonoProveedor(e.target.value)} />
-            <br/>
-            <label> Dirección:</label>
-            <input type="text" name="direccion" value={direccionProveedor} onChange={(e)=> setDireccionProveedor(e.target.value)} />
-            <br/>
-            <label> Ruc:</label>
-            <input type="text" name="ruc" value={rucProveedor} onChange={(e)=> setRucProveedor(e.target.value)} />
-            <br/>
-            <button onClick={handlerUpdateProveedor} > Submit </button>
-            <Link to={"/principal"} ><button > Cancel</button></Link>
+            <h1> Editar proveedor</h1>
+            <table align="center">
+                    <tr>
+                        <td><p> Name:</p></td>
+                        <td>
+                            <input type="text" name="name" value={nombreProveedor} onChange={(e)=> setNombreProveedor(e.target.value)} />
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p> Telefono:</p></td>
+                        <td>
+                            <input type="text" name="telefono" value={telefonoProveedor} onChange={(e)=> setTelefonoProveedor(e.target.value)} />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p> Dirección:</p></td>
+                        <td>
+                            <input type="text" name="direccion" value={direccionProveedor} onChange={(e)=> setDireccionProveedor(e.target.value)} />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p>RUC:</p></td>
+                        <td>
+                            <input type="text" name="ruc" value={rucProveedor} onChange={(e)=> setRucProveedor(e.target.value)} />
+
+                        </td>
+                    </tr>
+                </table>
+            <Button color="primary" onClick={handlerUpdateProveedor} > Guardar </Button> <Link to={"/proveedor"} ><Button color="primary">Cancel</Button></Link>
         </form>  
         </div>
     );

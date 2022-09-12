@@ -17,7 +17,7 @@ const Proveedores = () => {
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/proveedores")
-      .then((res) => setProveedor(res.data));
+      .then((res) => setProveedor(res.data.sort((a, b) => a.nombreProveedor.localeCompare(b.nombreProveedor))));
     setLoaded(true);
   }, []);
 
@@ -27,7 +27,7 @@ const Proveedores = () => {
         <div >
         <h1>Proveedores</h1>
       </div>
-      <p align="right">  <button className="boton" onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</button> </p>
+      <p align="center">  <button className="boton" onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</button> </p>
       <div>
         {loaded && <Lista proveedor={proveedor} updateDom={updateDom} />}
       </div>
