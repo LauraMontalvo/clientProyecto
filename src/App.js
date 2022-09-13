@@ -13,8 +13,12 @@ import ListaProductos from './Views/ListaProductos';
 import Proveedores from './Views/Proveedores';
 import ProveedorIngresar from './Views/ProveedorIngresar';
 import ProveedorUpdate from './Views/ProveedorUpdate';
-
+import useEffect from "react";
+const tele=window.Telegram.WebApp;
 function App() {
+  useEffect(()=>{
+    tele.ready();
+  });
   return (
     <div className="App">
         <BrowserRouter>
