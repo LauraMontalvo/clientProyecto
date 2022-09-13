@@ -11,6 +11,7 @@ const ProveedorUpdate = () =>{
     const [direccionProveedor,setDireccionProveedor]=useState("");
     const [rucProveedor,setRucProveedor]=useState("");
     const navigate = useNavigate();
+    const [updateError, setUpdateError] = useState(''); 
 
     const goToProv=()=>{
         navigate("/proveedor");
@@ -33,9 +34,14 @@ const ProveedorUpdate = () =>{
         axios.put("http://127.0.0.1:8000/api/proveedor/"+id,{nombreProveedor,telefonoProveedor, direccionProveedor,rucProveedor })
         .then(
             res => {console.log(res)
+            setUpdateError("Se ha actualizado correctamente");
             setTimeout(goToProv,1000)
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            setUpdateError("Revise las entradas y vuelva a intentarlo");
+            console.log(err)
+        
+        })
     } 
 
     return(
@@ -74,6 +80,9 @@ const ProveedorUpdate = () =>{
                         </td>
                     </tr>
                 </table>
+                <div>
+                    <p style={{color:'red'}}>{updateError}</p>
+                    </div>
             <Button color="primary" onClick={handlerUpdateProveedor} > Guardar </Button> <Link to={"/proveedor"} ><Button color="primary">Cancel</Button></Link>
         </form>  
         </div>
