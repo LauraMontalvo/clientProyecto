@@ -6,6 +6,7 @@ import {Table, Button} from 'react-bootstrap'
 const ProductoVenta = (props) => {
     const {productos,productosVender,setProductosVender} = props;
     const [filtrada,setFiltrada] = useState([]);
+    
     const filtrarProductos = (e) => {
         if(e.target.value==="Mostrar todos"){
             setFiltrada(productos.sort((a, b) => a.nombre.localeCompare(b.nombre)))
