@@ -5,7 +5,7 @@ import avatar from '../img/usuario.png'
 import { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import {Button} from "reactstrap";
-import loginFondo from '../img/loginFondo.jpg'
+import loginFondo from '../img/fondoMain.jpg'
 
 const LoginForm = (props) => {
     const [ NombreUsuario, setNombreUsuario] = useState("");

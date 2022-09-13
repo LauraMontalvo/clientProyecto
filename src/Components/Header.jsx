@@ -8,7 +8,7 @@ const Header = (props) =>{
     return(
         <div>
             <div className="nav">
-                <h1 >El BODEGON <span> DORADO</span></h1>
+                <h1 >LA CLÍNICA <span> ETÍLICA</span></h1>
                 <ul className="nav-links">
                     <li><Button  className="boton" onClick={e=>navigate("/listaProductos")} >Productos</Button></li>
                     <li><Button  className="boton" onClick={e=>navigate("/proveedor")} >Proveedores</Button></li>

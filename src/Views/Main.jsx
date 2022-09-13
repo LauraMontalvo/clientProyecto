@@ -1,5 +1,5 @@
 import Header from "../Components/Header"
-import imgFondo from "../img/fondo.jpg" 
+import imgFondo from "../img/loginFondo.jpg" 
 import "../Styles/Main.css"
 const Main = () => {
     return(
