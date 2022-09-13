@@ -14,7 +14,7 @@ const ProveedorIngresar = () => {
     const [nombreError, setNombreError] = useState("");
     const [telefonoError, setTelefonoError] = useState("");
     const [direccionError, setDireccionError] = useState("");
-    const [rucError, setRUCError] = useState("");
+    const [rucError, setRucError] = useState("");
     const [statusCreacion, setStatusCreation] = useState("");
 
 
