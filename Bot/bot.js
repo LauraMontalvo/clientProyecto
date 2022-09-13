@@ -3,7 +3,6 @@ const { Telegraf } = require('telegraf');
 const axios = require('axios');
 const bot = new Telegraf(TOKEN);
 const web_link='https://loquacious-donut-f1f559.netlify.app/'
-const axios = require('axios')
 
 async function Proveedores(ctx) {
     var res = await axios({method:'get',url: 'http://127.0.0.1:8000/api/proveedores'});
