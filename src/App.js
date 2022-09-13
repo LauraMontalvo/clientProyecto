@@ -16,7 +16,6 @@ import ProveedorUpdate from './Views/ProveedorUpdate';
 import useEffect from "react";
 const tele=window.Telegram.WebApp;
 function App() {
-
   return (
     <div className="App">
         <BrowserRouter>
