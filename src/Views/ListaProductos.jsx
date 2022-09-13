@@ -36,7 +36,7 @@ const ListaProductos = () => {
             <Header/>
             <h1>Inventario</h1>
             <hr />
-            <p align="center"><Button className="boton" onClick={e=>navigate("/nuevoProducto")} >Ingresar nuevo producto</Button> </p>
+            <p align="center"><Button color="primary" className="boton" onClick={e=>navigate("/nuevoProducto")} >Ingresar nuevo producto</Button> </p>
             <div className="container">
                 <Table>
                     <thead>
