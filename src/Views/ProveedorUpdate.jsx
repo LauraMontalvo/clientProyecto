@@ -15,6 +15,7 @@ const ProveedorUpdate = () =>{
 
     const goToProv=()=>{
         navigate("/proveedor");
+        //hola
     }
 
     useEffect(()=>{
