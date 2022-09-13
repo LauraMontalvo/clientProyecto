@@ -25,10 +25,11 @@ const Proveedores = () => {
   return (
     <div>
       <Header/>
-        <div >
+      <div >
         <h1>Proveedores</h1>
       </div>
-      <p align="center">  <Button className="boton" onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</Button> </p>
+      <hr />
+      <p align="center"> <Button onClick={e=>navigate("/proveedor/new")} >Ingresar nuevo Proveedor</Button> </p>
       <div>
         {loaded && <Lista proveedor={proveedor} updateDom={updateDom} />}
       </div>
